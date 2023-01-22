@@ -2,7 +2,7 @@
 /**
  * @author dev2fun (darkfriend)
  * @copyright darkfriend
- * @version 1.0.4
+ * @version 1.0.5
  */
 defined('B_PROLOG_INCLUDED') and (B_PROLOG_INCLUDED === true) or die();
 
@@ -87,7 +87,7 @@ $tabControl->begin();
                 $keys = Option::get($curModuleName, 'keys');
                 $lastKey = 0;
                 if ($keys) {
-                    $keys = unserialize($keys);
+                    $keys = unserialize($keys, ["allowed_classes" => false]);
                     foreach ($keys as $k => $v) {
                         ?>
                         <tr>

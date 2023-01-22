@@ -2,20 +2,20 @@
 /**
  * @author dev2fun (darkfriend)
  * @copyright (c) 2020, darkfriend
- * @version 1.0.4
+ * @version 1.0.5
  */
 
 if (class_exists('dev2funModelAuthEmailClass')) return;
 
 class dev2funModelAuthEmailClass
 {
-    function auth()
+    public static function auth()
     {
         \CModule::IncludeModule("main");
 
         $keys = \Bitrix\Main\Config\Option::get('dev2fun.authemail', 'keys');
         if ($keys) {
-            $keys = unserialize($keys);
+            $keys = unserialize($keys, ["allowed_classes" => false]);
         }
         if(!is_array($keys)) {
             $keys = [];
@@ -30,7 +30,9 @@ class dev2funModelAuthEmailClass
             $requestKey = $key;
             break;
         }
-        if(!$requestKey) return;
+        if(!$requestKey) {
+            return;
+        }
 
         $rsUser = \CUser::GetList(
             ($by = "id"),
