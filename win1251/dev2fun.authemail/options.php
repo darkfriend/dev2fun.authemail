@@ -2,7 +2,7 @@
 /**
  * @author dev2fun (darkfriend)
  * @copyright darkfriend
- * @version 1.0.5
+ * @version 1.0.6
  */
 defined('B_PROLOG_INCLUDED') and (B_PROLOG_INCLUDED === true) or die();
 
@@ -71,7 +71,7 @@ $tabControl->begin();
     $tabControl->beginNextTab();
     ?>
     <!--    <tr class="heading">-->
-    <!--        <td colspan="2"><b>--><? //echo GetMessage("D2F_COMPRESS_HEADER_SETTINGS")?><!--</b></td>-->
+    <!--        <td colspan="2"><b>--><?php //echo GetMessage("D2F_COMPRESS_HEADER_SETTINGS")?><!--</b></td>-->
     <!--    </tr>-->
 
     <tr>
@@ -92,11 +92,12 @@ $tabControl->begin();
                         ?>
                         <tr>
                             <td>
-                                <input type="text"
-                                       size="50"
-                                       name="keys[n<?=$lastKey?>]"
-                                       value="<?=$v?>"
-                                       placeholder="key"
+                                <input
+                                    type="text"
+                                    size="50"
+                                    name="keys[n<?=$lastKey?>]"
+                                    value="<?=$v?>"
+                                    placeholder="USER_LOGIN:USER_PASSWORD"
                                 />
                             </td>
                         </tr>
@@ -110,7 +111,7 @@ $tabControl->begin();
                                size="50"
                                name="keys[n<?=$lastKey?>]"
                                value=""
-                               placeholder="key"
+                               placeholder="USER_LOGIN:USER_PASSWORD"
                         />
                     </td>
                 </tr>
